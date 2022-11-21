@@ -43,6 +43,7 @@ Supported colors: 2
 Hershey font:
 - http://hershey-noailles.luuse.io/www/#
 - http://paulbourke.net/dataformats/hershey/
+- https://www.codeproject.com/Articles/444/Hershey-Font-wrapper-class
 
 Guides:
 - https://developer.rebble.io/developer.pebble.com/tutorials/watchface-tutorial/part2/index.html
