@@ -1,0 +1,56 @@
+{
+    "targetPlatforms": [
+        "aplite"
+    ], 
+    "displayName": "engineeringtime", 
+    "name": "engineeringtime", 
+    "messageKeys": {
+        "dummy": 10000
+    }, 
+    "companyName": "phcreery", 
+    "enableMultiJS": true, 
+    "versionLabel": "1.0", 
+    "capabilities": [], 
+    "sdkVersion": "3", 
+    "appKeys": {
+        "dummy": 10000
+    }, 
+    "longName": "engineeringtime", 
+    "shortName": "engineeringtime", 
+    "watchapp": {
+        "watchface": true
+    }, 
+    "resources": {
+        "media": [
+            {
+                "type": "font", 
+                "name": "FONT_IMAGINE_48", 
+                "file": "fonts/Hershey-Noailles-Futura-Simplex-Regular.ttf", 
+                "compatibility": "2.7"
+            }, 
+            {
+                "type": "font", 
+                "name": "FONT_IMAGINE_24", 
+                "file": "fonts/Hershey-Noailles-Futura-Simplex-Regular.ttf", 
+                "compatibility": "2.7"
+            }, 
+            {
+                "menuIcon": true, 
+                "type": "png", 
+                "name": "IMAGE_MENU_ICON", 
+                "file": "images/menu_icon.png"
+            }, 
+            {
+                "type": "png", 
+                "name": "BT_WHITE", 
+                "file": "images/bt-bar-white.png"
+            }, 
+            {
+                "type": "png", 
+                "name": "BT_BLACK", 
+                "file": "images/bt-bar-black.png"
+            }
+        ]
+    }, 
+    "uuid": "bb2797f9-2dc0-4e24-b9fe-2633581101a3"
+}
