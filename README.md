@@ -1,10 +1,12 @@
-# EngineeringTime Watchface
+# EngineeringTime Hershey Font Pebble Watchface
+
+![Screenshot](screenshot.png)
 
 ## Dev
 
-https://rebble.io/hackathon-001/vm/
-https://github.com/Willow-Systems/pebble-tool-vscode-extension
-https://willow.systems/pebble/
+- https://rebble.io/hackathon-001/vm/
+- https://github.com/Willow-Systems/pebble-tool-vscode-extension
+- https://willow.systems/pebble/
 
 ```
 pebble build
@@ -39,19 +41,19 @@ Supported colors: 2
 ## Resources and Inspiration
 
 Hershey font:
-http://hershey-noailles.luuse.io/www/#
-http://paulbourke.net/dataformats/hershey/
+- http://hershey-noailles.luuse.io/www/#
+- http://paulbourke.net/dataformats/hershey/
 
 Guides:
-https://developer.rebble.io/developer.pebble.com/tutorials/watchface-tutorial/part2/index.html
-https://pebble.gitbooks.io/learning-c-with-pebble/content/chapter19.html
+- https://developer.rebble.io/developer.pebble.com/tutorials/watchface-tutorial/part2/index.html
+- https://pebble.gitbooks.io/learning-c-with-pebble/content/chapter19.html
 
 Examples:
-https://github.com/pebble-examples/simple-analog/
-https://github.com/yanatan16/pebble-discs
-https://github.com/C-D-Lewis/pebble
-https://github.com/C-D-Lewis/thin
-https://github.com/brunobasto/pebble-react
-https://github.com/markusressel/Watchface-No.-2
-https://github.com/erikbrinkman/modernesque
-https://github.com/snymainn/minimalist-pebble
+- https://github.com/pebble-examples/simple-analog/
+- https://github.com/yanatan16/pebble-discs
+- https://github.com/C-D-Lewis/pebble
+- https://github.com/C-D-Lewis/thin
+- https://github.com/brunobasto/pebble-react
+- https://github.com/markusressel/Watchface-No.-2
+- https://github.com/erikbrinkman/modernesque
+- https://github.com/snymainn/minimalist-pebble
