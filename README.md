@@ -47,9 +47,12 @@ Supported colors: 2
 ## Resources and Inspiration
 
 Hershey font:
+- https://en.wikipedia.org/wiki/Hershey_fonts
 - http://hershey-noailles.luuse.io/www/#
 - http://paulbourke.net/dataformats/hershey/
-
+- https://www.codeproject.com/Articles/444/Hershey-Font-wrapper-class
+- https://observablehq.com/@jonsadka/hershey-vector-font-visualizer
+ 
 Guides:
 - https://developer.rebble.io/developer.pebble.com/tutorials/watchface-tutorial/part2/index.html
 - https://pebble.gitbooks.io/learning-c-with-pebble/content/chapter19.html
