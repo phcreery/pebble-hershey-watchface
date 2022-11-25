@@ -5,10 +5,8 @@ static Window *s_window;
 static TextLayer *s_digits[NUM_CHARS];
 static Layer *s_bt_layer;
 static GBitmap *s_bt_bitmap;
-static Layer *s_inv_layer;
 
 static Layer *s_date_layer;
-static Layer *s_time_layer;
 
 static char s_time_buffer[NUM_CHARS + 1];       // + NULL char
 static char s_date_buffer[DATE_BUFFER_SIZE];
@@ -53,16 +51,14 @@ static void show_digit_values() {
       text_layer_set_text(s_digits[i], ":");
     }
   }
-
-  // text_layer_set_text(s_date_layer, s_date_buffer);
-  // date_layer_set_text(s_date_layer, s_date_buffer);
 }
 
 /*********************************** Window ***********************************/
 
 static void bt_handler(bool connected) {
   if(connected) {
-    layer_set_hidden(s_bt_layer, true);
+    // layer_set_hidden(s_bt_layer, true);
+    layer_set_hidden(s_bt_layer, false);
   } else {
     vibes_double_pulse();
     layer_set_hidden(s_bt_layer, false);
@@ -85,39 +81,6 @@ static void date_update_proc(Layer *layer, GContext *ctx) {
   
   // convert s_date_buffer to string
   font_draw_string(s_date_buffer, bounds.origin.x, bounds.origin.y, 0.65, ctx);
-}
-
-static void time_update_proc(Layer *layer, GContext *ctx) {
-  graphics_context_set_fill_color(ctx, data_get_foreground_color());
-  // Set the line color
-  graphics_context_set_stroke_color(ctx, data_get_foreground_color());
-
-  // Set the stroke width (must be an odd integer value)
-  graphics_context_set_stroke_width(ctx, 1);
-
-  // Disable antialiasing (enabled by default where available)
-  graphics_context_set_antialiased(ctx, true);
-
-  // get the bounds of the layer
-  GRect bounds = layer_get_bounds(layer);
-
-  // font_draw_char('A', 1, 1, 2, ctx);
-  // font_draw_string("am 12:34", 1, 72, 1, ctx);
-  
-  // draw s_time_buffer
-  // for(int i = 0; i < NUM_CHARS; i++) {
-  //   if(i != 2) {
-  //     font_draw_char(s_time_buffer[i], 1 + i * 24, 1, 1.5, ctx);
-  //   } else {
-  //     font_draw_char(':', 1 + i * 24, 1, 1.5, ctx);
-  //   }
-  // }
-}
-
-static void inv_update_proc(Layer *layer, GContext *ctx) {
-  GBitmap *fb = graphics_capture_frame_buffer(ctx);
-
-  graphics_release_frame_buffer(ctx, fb);
 }
 
 static void bt_update_proc(Layer *layer, GContext *ctx) {
@@ -153,27 +116,15 @@ static void window_load(Window *window) {
 
   for(int i = 0; i < NUM_CHARS; i++) {
     text_layer_set_background_color(s_digits[i], GColorClear);
-    text_layer_set_text_alignment(s_digits[i], GTextAlignmentRight);
+    text_layer_set_text_alignment(s_digits[i], GTextAlignmentRight); // GTextAlignmentCenter
     text_layer_set_font(s_digits[i], fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IMAGINE_48)));
     layer_add_child(window_layer, text_layer_get_layer(s_digits[i]));
   }
 
-  s_inv_layer = layer_create(GRect(bounds.origin.x, bounds.origin.y, bounds.size.w, BEAM_SIZE.h));
-  layer_set_update_proc(s_inv_layer, inv_update_proc);
-  layer_add_child(window_layer, s_inv_layer);
-
+  // Date layer
   s_date_layer = layer_create(GRect(DATE_X_OFFSET, DATE_Y_OFFSET, bounds.size.w - DATE_X_OFFSET, DATE_HEIGHT));
-  // s_date_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
-  // text_layer_set_background_color(s_date_layer, GColorClear);
-  // text_layer_set_text_alignment(s_date_layer, PBL_IF_ROUND_ELSE(GTextAlignmentCenter, GTextAlignmentRight));
-  // text_layer_set_font(s_date_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IMAGINE_24)));
   layer_set_update_proc(s_date_layer, date_update_proc);
   layer_add_child(window_layer, s_date_layer);
-
-  // My testing layer
-  s_time_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
-  layer_set_update_proc(s_time_layer, time_update_proc);
-  layer_add_child(window_layer, s_time_layer);
 
   s_bt_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BT_WHITE);
 
@@ -190,8 +141,6 @@ static void window_unload(Window *window) {
     text_layer_destroy(s_digits[i]);
   }
   layer_destroy(s_date_layer);
-  layer_destroy(s_time_layer);
-
   layer_destroy(s_bt_layer);
   gbitmap_destroy(s_bt_bitmap);
 
@@ -218,6 +167,7 @@ static void reload_config() {
   // BT layer
   if(data_get_boolean_setting(DataKeyBTIndicator)) {
     layer_set_hidden(s_bt_layer, connection_service_peek_pebble_app_connection());
+    // layer_set_hidden(s_bt_layer, false);
   } else {
     // Don't want this
     layer_set_hidden(s_bt_layer, true);
@@ -237,9 +187,7 @@ static void reload_config() {
     layer_remove_from_parent(s_date_layer);
   }
 
-  layer_mark_dirty(s_bt_layer);
-  layer_mark_dirty(s_inv_layer);  
-  layer_mark_dirty(s_time_layer);
+  layer_mark_dirty(s_bt_layer);  
   layer_mark_dirty(s_date_layer);
 
 }

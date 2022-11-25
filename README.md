@@ -14,6 +14,12 @@ export DISPLAY=:0.0
 pebble install --emulator aplite
 pebble kill
 pebble wipe
+killall qemu-pebble
+
+pebble emu-bt-connection --connected no
+pebble emu-time-format --format 12h
+
+
 ```
 
 ## Pebble OG (aplite) Specs

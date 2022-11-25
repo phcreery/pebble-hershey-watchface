@@ -13,13 +13,10 @@
 
 #define DATE_BUFFER_SIZE     32
 #define DATE_HEIGHT          30
-#define DATE_X_OFFSET        5 // PBL_IF_ROUND_ELSE(0, 45)
+#define DATE_X_OFFSET        4 // PBL_IF_ROUND_ELSE(0, 45)
 #define DATE_Y_OFFSET        100
 
-#define BEAM_SIZE            GSize(30, 101)
-#define BEAM_X_OFFSET        14
-
-#define BT_Y_OFFSET          140
+#define BT_Y_OFFSET          10
 
 #define BATTERY_HEIGHT       3
 
