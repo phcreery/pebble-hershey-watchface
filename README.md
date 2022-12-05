@@ -50,6 +50,7 @@ Hershey font:
 - https://en.wikipedia.org/wiki/Hershey_fonts
 - http://hershey-noailles.luuse.io/www/#
 - http://paulbourke.net/dataformats/hershey/
+- http://www.whence.com/hershey-fonts/
 - https://www.codeproject.com/Articles/444/Hershey-Font-wrapper-class
 - https://observablehq.com/@jonsadka/hershey-vector-font-visualizer
  
